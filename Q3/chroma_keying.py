@@ -4,7 +4,7 @@ import numpy as np
 from os.path import isfile, join
 
 # Input video 1 and video 2
-video1 = cv2.VideoCapture('trex.mp4')
+video1 = cv2.VideoCapture('person.mp4')
 # video1 = cv2.VideoCapture('trex.mp4')
 video2 = cv2.VideoCapture('pedestrian.avi')
 
