@@ -1,0 +1,10 @@
+venv/
+frames/
+data/
+bg_frames/
+final_frames/
+person_frames/
+output.avi
+pedestrian.avi
+person.mp4
+trex.mp4
