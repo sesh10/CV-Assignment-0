@@ -5,6 +5,7 @@ from os.path import isfile, join
 
 # Input video 1 and video 2
 video1 = cv2.VideoCapture('trex.mp4')
+# video1 = cv2.VideoCapture('trex.mp4')
 video2 = cv2.VideoCapture('pedestrian.avi')
 
 # Create directories
@@ -66,19 +67,13 @@ for i in range(total_frames):
     # Threshold the HSV image to get only gray colors
     mask = cv2.inRange(person_frame_hsv, lower_gray, upper_gray).astype(np.uint8)
 
-    # Bitwise-AND mask and original image
+    # Bitwise-AND mask and original image, apply inverse
     res = cv2.bitwise_and(person_frame, person_frame, mask=mask)
-
-    # Invert mask
     mask_inv = cv2.bitwise_not(mask)
-
-    # Bitwise-AND mask_inv and bg_frame
     res2 = cv2.bitwise_and(bg_frame, bg_frame, mask=mask_inv)
 
-    # Add res and res2
+    # Add both the images and save
     final = cv2.add(res, res2)
-
-    # Save final image
     cv2.imwrite('./final_frames/frame' + str(i) + '.jpg', final)
 
 
